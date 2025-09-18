@@ -20,7 +20,8 @@ namespace Akasztófa
             int tippek = 5;
             Console.WriteLine("AKASZTÓFA\n\n\n");
             string kiirszoalak = "";
-            Console.WriteLine(randomszo);
+            string allapot = "";
+            string nemtalaltb = "";
             for (int i = 0; i < hossz; i++)
             {
                 kiirszoalak += kiirszo;
@@ -28,15 +29,18 @@ namespace Akasztófa
             }
             do
             {
+                Console.WriteLine(allapot);
+                Console.Write($"Nem talált betűk: {nemtalaltb}\n\n\n\n");
                 for (int i = 0; i < hossz; i++)
                 {
                     Console.Write(kiirszoalak[i] + " ");
                 }
-                
-                   
+                Console.WriteLine($"\nMaradt tippek: {tippek}");
 
-                
-                
+
+
+
+
                 Console.Write("\nKérem, adjon meg egy betűt (Kilépéshez nyomjon entert): ");
                 string tipp = Console.ReadLine();
                 if (tipp == "")
@@ -47,25 +51,25 @@ namespace Akasztófa
                 }
                 else if (tipp.Length > 1)
                 {
-                    Console.WriteLine("Egyszerre csak egy betűt írjon!\n\n\n");
+                    allapot = "Egyszerre csak egy betűt írjon!\n\n\n";
                 }
-                
                 else if (tipp.Length < 2 && randomszo.Contains(tipp))
                 {
-                    Console.WriteLine("\n\nEltaláltad!\n\n\n");
-                    for (int i = 0;i < hossz; i++)
+                    allapot = "\n\nEltaláltad!\n\n\n";
+                    for (int i = 0; i < hossz; i++)
                     {
                         if (randomszo[i] == tipp[0])
                         {
-                            kiirszoalak = kiirszoalak.Insert(i, tipp).Remove(i+1, 1);
+                            kiirszoalak = kiirszoalak.Insert(i, tipp).Remove(i + 1, 1);
                         }
                     }
                 }
                 else
-                {   
+                {
                     tippek -= 1;
-                    Console.WriteLine($"Nem talált!\n\n\n");
-                    Console.WriteLine($"Maradt tippek: {tippek}");
+                    nemtalaltb += tipp;
+                   allapot = "Nem talált!\n\n\n";
+
                 }
                 
                 if (tippek == 0)
@@ -80,6 +84,7 @@ namespace Akasztófa
                     Console.WriteLine($"Gratulálok, kitaláltad!");
                     break;
                 }
+                Console.Clear();
             } while (!hamis);
             
         }
