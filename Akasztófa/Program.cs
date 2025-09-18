@@ -11,10 +11,76 @@ namespace Akasztófa
     {
         static void Main(string[] args)
         {
-            string[] szavak = { "hajó", "mikrosütő", "monitor", "sportautó", "almáspite" };
+            string[] szavak = { "Ablak", "Tenger", "Pillangó", "Könyv", "Virág", "Házikó", "Számít", "Utazás", "Kertész", "Napfény", "Madarak", "Hegyek", "Csendes", "Barátok", "Iskola", "Város", "Tavasz", "Gyümölcs", "Szélben", "Kézzel" };
             Random rnd = new Random();
             string randomszo = szavak[rnd.Next(0, szavak.Length)];
-            
+            int hossz = randomszo.Length;
+            string kiirszo = "_";
+            bool hamis = false;
+            int tippek = 5;
+            Console.WriteLine("AKASZTÓFA\n\n\n");
+            string kiirszoalak = "";
+            Console.WriteLine(randomszo);
+            for (int i = 0; i < hossz; i++)
+            {
+                kiirszoalak += kiirszo;
+                
+            }
+            do
+            {
+                for (int i = 0; i < hossz; i++)
+                {
+                    Console.Write(kiirszoalak[i] + " ");
+                }
+                
+                   
+
+                
+                
+                Console.Write("\nKérem, adjon meg egy betűt (Kilépéshez nyomjon entert): ");
+                string tipp = Console.ReadLine();
+                if (tipp == "")
+                {
+                    Console.Clear();
+                    Console.WriteLine("Viszlát!");
+                    break;
+                }
+                else if (tipp.Length > 1)
+                {
+                    Console.WriteLine("Egyszerre csak egy betűt írjon!\n\n\n");
+                }
+                
+                else if (tipp.Length < 2 && randomszo.Contains(tipp))
+                {
+                    Console.WriteLine("\n\nEltaláltad!\n\n\n");
+                    for (int i = 0;i < hossz; i++)
+                    {
+                        if (randomszo[i] == tipp[0])
+                        {
+                            kiirszoalak = kiirszoalak.Insert(i, tipp).Remove(i+1, 1);
+                        }
+                    }
+                }
+                else
+                {   
+                    tippek -= 1;
+                    Console.WriteLine($"Nem talált!\n\n\n");
+                    Console.WriteLine($"Maradt tippek: {tippek}");
+                }
+                
+                if (tippek == 0)
+                {
+                    Console.Clear();
+                    Console.WriteLine($"Vesztettél! A szó a(z) {randomszo} volt");
+                    break;
+                }
+                if (kiirszoalak == randomszo)
+                {
+                    Console.Clear();
+                    Console.WriteLine($"Gratulálok, kitaláltad!");
+                    break;
+                }
+            } while (!hamis);
             
         }
     }
