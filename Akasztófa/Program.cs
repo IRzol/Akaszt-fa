@@ -17,7 +17,7 @@ namespace Akasztófa
             int hossz = randomszo.Length;
             string kiirszo = "_";
             bool hamis = false;
-            int tippek = 5;
+            int tippek = 10;
             Console.WriteLine("AKASZTÓFA\n\n\n");
             string kiirszoalak = "";
             string allapot = "";
