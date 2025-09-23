@@ -77,8 +77,19 @@ namespace Akasztófa
                 if (tippek == 0)
                 {
                     Console.Clear();
-                    Console.WriteLine($"Vesztettél! A szó a(z) {randomszo} volt");
-                    break;
+                    Console.WriteLine($"Vesztettél! A szó a(z) {randomszo} volt! Enter lenyomására kiléphet!");
+                    do
+                    {
+                        string kilep = Console.ReadLine();
+                        if (kilep != "")
+                        {
+                            Console.WriteLine("Kérem Enter-t nyomjon a kilépéshez!");
+                        }
+                        else
+                        {
+                            hamis = true;
+                        }
+                    } while (hamis != true);
                 }
                 if (kiirszoalak == randomszo)
                 {
