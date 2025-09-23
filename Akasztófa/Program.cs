@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +22,8 @@ namespace Akasztófa
             string kiirszoalak = "";
             string allapot = "";
             string nemtalaltb = "" ;
+            
+            Console.WriteLine(randomszo);
             for (int i = 0; i < hossz; i++)
             {
                 kiirszoalak += kiirszo;
@@ -81,8 +83,19 @@ namespace Akasztófa
                 if (kiirszoalak == randomszo)
                 {
                     Console.Clear();
-                    Console.WriteLine($"Gratulálok, kitaláltad!");
-                    break;
+                    Console.WriteLine($"Gratulálok, kitaláltad! Enter lenyomására kiléphet!");
+                    do
+                    {
+                        string kilep = Console.ReadLine();
+                        if (kilep != "")
+                        {
+                            Console.WriteLine("Kérem Enter-t nyomjon a kilépéshez!");
+                        }
+                        else
+                        {
+                            hamis = true;
+                        }
+                    } while(hamis != true);
                 }
                 Console.Clear();
             } while (!hamis);
