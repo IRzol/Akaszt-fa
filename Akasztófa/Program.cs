@@ -22,8 +22,6 @@ namespace Akasztófa
             string kiirszoalak = "";
             string allapot = "";
             string nemtalaltb = "" ;
-            
-            Console.WriteLine(randomszo);
             for (int i = 0; i < hossz; i++)
             {
                 kiirszoalak += kiirszo;
