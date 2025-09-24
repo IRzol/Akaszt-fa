@@ -14,17 +14,17 @@ namespace Akasztófa
             string[] szavak = { "Ablak", "Tenger", "Pillangó", "Könyv", "Virág", "Házikó", "Számít", "Utazás", "Kertész", "Napfény", "Madarak", "Hegyek", "Csendes", "Barátok", "Iskola", "Város", "Tavasz", "Gyümölcs", "Szélben", "Kézzel" };
             Random rnd = new Random();
             string randomszo = szavak[rnd.Next(0, szavak.Length)];
-            int hossz = randomszo.Length;
-            string kiirszo = "_";
             bool hamis = false;
             int tippek = 10;
-            Console.WriteLine("AKASZTÓFA\n\n\n");
+            int hossz = randomszo.Length;
+            string kiirszo = "_";
             string kiirszoalak = "";
             string allapot = "";
             string nemtalaltb = "" ;
             string elet = "";
             string sziv = "▣";
             string uressziv = "□";
+            Console.WriteLine("AKASZTÓFA\n\n\n");
             for (int i = 0; i < hossz; i++)
             {
                 kiirszoalak += kiirszo;
