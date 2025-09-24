@@ -20,7 +20,7 @@ namespace Akasztófa
             string kiirszo = "_";
             string kiirszoalak = "";
             string allapot = "";
-            string nemtalaltb = "" ;
+            string nemtalaltb = "";
             string elet = "";
             string sziv = "▣";
             string uressziv = "□";
@@ -28,7 +28,7 @@ namespace Akasztófa
             for (int i = 0; i < hossz; i++)
             {
                 kiirszoalak += kiirszo;
-                
+
             }
             for (int i = 0; i < tippek; i++)
             {
@@ -43,12 +43,7 @@ namespace Akasztófa
                     Console.Write(kiirszoalak[i] + " ");
                 }
 
-                
                 Console.WriteLine($"\nMaradt élet: {elet + " "}");
-
-
-
-
 
                 Console.Write("\nKérem, adjon meg egy betűt (Kilépéshez nyomjon entert): ");
                 string tipp = Console.ReadLine();
@@ -83,10 +78,8 @@ namespace Akasztófa
                         elet = new string(sziv[0], tippek) + new string(uressziv[0], 10 - tippek);
 
                     }
-                    
-
                 }
-                
+
                 if (tippek == 0)
                 {
                     Console.Clear();
@@ -119,11 +112,11 @@ namespace Akasztófa
                         {
                             hamis = true;
                         }
-                    } while(hamis != true);
+                    } while (hamis != true);
                 }
                 Console.Clear();
             } while (!hamis);
-            
+
         }
     }
 }
