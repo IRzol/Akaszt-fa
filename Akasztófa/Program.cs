@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-
 namespace Akasztófa
 {
     internal class Program
     {
         static void Main(string[] args)
         {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
             string[] szavak = { "Ablak", "Tenger", "Pillangó", "Könyv", "Virág", "Házikó", "Számít", "Utazás", "Kertész", "Napfény", "Madarak", "Hegyek", "Csendes", "Barátok", "Iskola", "Város", "Tavasz", "Gyümölcs", "Szélben", "Kézzel" };
             Random rnd = new Random();
             string randomszo = szavak[rnd.Next(0, szavak.Length)];
@@ -22,10 +22,17 @@ namespace Akasztófa
             string kiirszoalak = "";
             string allapot = "";
             string nemtalaltb = "" ;
+            string elet = "";
+            string sziv = "▣";
+            string uressziv = "□";
             for (int i = 0; i < hossz; i++)
             {
                 kiirszoalak += kiirszo;
                 
+            }
+            for (int i = 0; i < tippek; i++)
+            {
+                elet += sziv;
             }
             do
             {
@@ -35,7 +42,9 @@ namespace Akasztófa
                 {
                     Console.Write(kiirszoalak[i] + " ");
                 }
-                Console.WriteLine($"\nMaradt tippek: {tippek}");
+
+                
+                Console.WriteLine($"\nMaradt élet: {elet + " "}");
 
 
 
@@ -68,7 +77,13 @@ namespace Akasztófa
                 {
                     tippek -= 1;
                     nemtalaltb += tipp;
-                   allapot = "Nem talált!\n\n\n";
+                    allapot = "Nem talált!\n\n\n";
+                    for (int i = 0; i < elet.Length; i++)
+                    {
+                        elet = new string(sziv[0], tippek) + new string(uressziv[0], 10 - tippek);
+
+                    }
+                    
 
                 }
                 
